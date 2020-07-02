@@ -45,6 +45,7 @@
                       <td>{{$row->price}}</td>
                       <td>
                         <a href="{{route('cartypes.edit',$row->id)}}"  class="btn btn-warning" >Edit</a>
+                        
                          <form action="{{route('cartypes.destroy',$row->id)}}" method="POST" onsubmit="return confirm('Are you Sure?')">
                           @csrf
                           @method('DELETE')
