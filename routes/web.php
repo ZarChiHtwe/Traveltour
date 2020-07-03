@@ -24,3 +24,6 @@ Route::resource('cartypes','backend\CartypeController');
 Route::resource('cars','backend\CarController');
 
 Route::resource('hotels','backend\HotelController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

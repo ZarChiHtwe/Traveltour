@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Car;
+use App\Cartype;
 
 class CarController extends Controller
 {
@@ -15,9 +16,9 @@ class CarController extends Controller
      */
     public function index()
     {
-       $cars = Car::all();
-        return view('backend.cars.index',compact('cars'));
-    }
+     $cars = Car::all();
+     return view('backend.cars.index',compact('cars'));
+ }
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +27,8 @@ class CarController extends Controller
      */
     public function create()
     {
-        return view('backend.cars.create');
+        $cartypes = Cartype::all();
+        return view('backend.cars.create',compact('cartypes'));
     }
 
     /**
@@ -40,18 +42,37 @@ class CarController extends Controller
          //validation
         $request->validate([
             'carnumber' => 'required|max:191',
-            'name' => 'required|min:5|max:191',
-            'status'=> 'required|max:191'
-
+            'photo.*' => 'required|mimes:jpeg,bmp,png',
+            'status'=> 'required|max:191',
+            'cartype'=> 'required'
         ]);
-
-        //Data insert
+        if ($files=$request->file('photo')) {
+            $destinationPath=public_path('images');
+            foreach($files as $img)
+            {
+                $Image=$img->getClientOriginalName().'.'.$img->extension();
+                $img->move($destinationPath, $Image);
+                $data[]='images/'.$Image;
+            }
+        }
         $car = new Car;
         $car->carnumber = $request->carnumber;
-        $car->name = $request->name;
+        $car->photo = json_encode($data);
         $car->status = $request->status;
-
+        $car->cartype_id = $request->cartype;
         $car->save();
+        // $car = new Car;
+        // $car->carnumber = $request->carnumber;
+        // $car->photo = json_encode($data);
+        // $car->status = $request->status;
+
+        // File Upload  getClientOriginalName()
+
+        // $imageName =time().'.'.$request->photo->extension();
+        // $request->photo->move(public_path('images'),$imageName);
+        // $filepath='images/'.$imageName;
+
+        //Data insert
 
         //return
         return redirect()->route('cars.index');
@@ -65,7 +86,8 @@ class CarController extends Controller
      */
     public function show($id)
     {
-        //
+        $car = Car::find($id);
+        return view('backend.cars.detail',compact('car'));
     }
 
     /**
@@ -77,7 +99,8 @@ class CarController extends Controller
     public function edit($id)
     {
         $car = Car::find($id);
-       return view('backend.cars.edit',compact('car'));
+        $cartypes = Cartype::all();
+        return view('backend.cars.edit',compact('car','cartypes'));
     }
 
     /**
@@ -92,16 +115,40 @@ class CarController extends Controller
          //validation
         $request->validate([
             'carnumber' => 'required|max:191',
-            'name' => 'required|min:5|max:191',
-            'status'=> 'required|max:191'
-
+            'status'=> 'required|max:191',
+            'cartype'=> 'required'
         ]);
+        $old=$request->oldphoto;
+
+        if ($request->hasFile('photo')) {
+           $files=$request->file('photo');
+                $destinationPath=public_path('images');
+                foreach($files as $img)
+                {
+                    $Image=$img->getClientOriginalName().'.'.$img->extension();
+                    $img->move($destinationPath, $Image);
+                    $photo[]='images/'.$Image;
+                }
+
+            $data=json_encode($photo);
+            // unlink($old);
+            $decold=json_decode($old);
+            foreach($decold as $dc)
+            {
+                unlink($dc);
+            }
+        }
+        else
+        {
+            $data=$request->oldphoto;
+        }
 
         //Data insert
         $car =  Car::find($id);
         $car->carnumber = $request->carnumber;
-        $car->name = $request->name;
+        $car->photo =$data;
         $car->status = $request->status;
+        $car->cartype_id= $request->cartype;
 
         $car->save();
 
@@ -117,7 +164,7 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $car = Car::find($id);
         $car->delete();
 

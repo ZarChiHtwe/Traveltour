@@ -16,10 +16,15 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string('carnumber');
-            $table->string('name');
+            $table->string('photo');
             $table->string('status');
+            $table->unsignedBigInteger('cartype_id');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('cartype_id')
+            ->references('id')->on('cartypes')
+            ->onDelete('cascade');
         });
     }
 
