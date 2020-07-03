@@ -30,5 +30,8 @@ Route::get('about','frontend\FrontendController@about')->name('about');
 Route::get('contact','frontend\FrontendController@contact')->name('contact');
 Route::get('package','frontend\FrontendController@package')->name('package');
 Route::get('packagedetail','frontend\FrontendController@packagedetail')->name('packagedetail');
-Route::get('login','frontend\FrontendController@login')->name('login');
+// Route::get('login','frontend\FrontendController@login')->name('login');
 Route::get('register','frontend\FrontendController@register')->name('register');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

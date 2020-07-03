@@ -37,11 +37,11 @@
                         </div>
                   </div>
             	<div class="form-group row">
-            		<label  class="col-sm-2 col-form-label">Name</label>
+            		<label  class="col-sm-2 col-form-label">Photo</label>
             		<div class="col-sm-10">
-            			<input type="text" class="form-control @error('name') is-invalid @enderror"   placeholder="Enter Car Name" name="name">
+            			<input type="file" class="form-control @error('name') is-invalid @enderror"  name="photo">
 
-            		    @error('name')
+            		    @error('photo')
             			<span class="invalid-feedback" role="alert">
             				<strong>{{ $message}}</strong>
             			</span>

@@ -40,7 +40,7 @@ class CarController extends Controller
          //validation
         $request->validate([
             'carnumber' => 'required|max:191',
-            'name' => 'required|min:5|max:191',
+            'photo' => 'required',
             'status'=> 'required|max:191'
 
         ]);
@@ -48,7 +48,7 @@ class CarController extends Controller
         //Data insert
         $car = new Car;
         $car->carnumber = $request->carnumber;
-        $car->name = $request->name;
+        $car->photo = $request->photo;
         $car->status = $request->status;
 
         $car->save();
@@ -94,6 +94,7 @@ class CarController extends Controller
             'carnumber' => 'required|max:191',
             'name' => 'required|min:5|max:191',
             'status'=> 'required|max:191'
+            
 
         ]);
 

@@ -2,14 +2,14 @@
 @section('content')
 
 
-<div class="body">
-			<div class="container-fluid home-banner">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<h2 class="text-center">Travel with Let's Travel</h2>
-					</div>
+	<div class="body">
+		<div class="container-fluid home-banner">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<h2 class="text-center">Travel with Let's Travel</h2>
 				</div>
-				<div class="row">
+			</div>
+			<div class="row">
 					<!-- <div class="col-lg-12 col-md-12 col-sm-12 mt-3 text-center">
 						Choose Your Favouriate Plan:
 					</div> -->
@@ -131,4 +131,6 @@
 			</div>
 
 		</div>
+
+	</body>
 @endsection
