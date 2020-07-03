@@ -42,9 +42,12 @@ class CarController extends Controller
          //validation
         $request->validate([
             'carnumber' => 'required|max:191',
+
             'photo.*' => 'required|mimes:jpeg,bmp,png',
             'status'=> 'required|max:191',
             'cartype'=> 'required'
+
+
         ]);
         if ($files=$request->file('photo')) {
             $destinationPath=public_path('images');
@@ -57,6 +60,7 @@ class CarController extends Controller
         }
         $car = new Car;
         $car->carnumber = $request->carnumber;
+
         $car->photo = json_encode($data);
         $car->status = $request->status;
         $car->cartype_id = $request->cartype;
@@ -115,8 +119,10 @@ class CarController extends Controller
          //validation
         $request->validate([
             'carnumber' => 'required|max:191',
+
             'status'=> 'required|max:191',
             'cartype'=> 'required'
+            
         ]);
         $old=$request->oldphoto;
 

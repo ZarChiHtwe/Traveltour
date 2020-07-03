@@ -9,5 +9,7 @@ class Car extends Model
 {
     use SoftDeletes;
 
+
     Protected $fillable=['carnumber','photo','status','cartype_id'];
+
 }

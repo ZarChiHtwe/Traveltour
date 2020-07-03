@@ -13,6 +13,7 @@
     </div>
   </div>
 
+
   <!-- DataTales Example -->
   <div class="card shadow mt-4 mb-4">
     <div class="card-header py-3">
@@ -49,7 +50,6 @@
               <form action="{{route('cartypes.destroy',$row->id)}}" method="POST" onsubmit="return confirm('Are you Sure?')">
                 @csrf
                 @method('DELETE')
-
                 <input type="submit"  name="btnsubmit" value="DELETE" class="btn btn-outline-danger">
 
               </form>

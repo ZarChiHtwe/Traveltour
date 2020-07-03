@@ -24,6 +24,16 @@ Route::resource('cartypes','backend\CartypeController');
 Route::resource('cars','backend\CarController');
 
 Route::resource('hotels','backend\HotelController');
+
+
+Route::get('frontend','frontend\FrontendController@index')->name('index');
+Route::get('about','frontend\FrontendController@about')->name('about');
+Route::get('contact','frontend\FrontendController@contact')->name('contact');
+Route::get('package','frontend\FrontendController@package')->name('package');
+Route::get('packagedetail','frontend\FrontendController@packagedetail')->name('packagedetail');
+// Route::get('login','frontend\FrontendController@login')->name('login');
+Route::get('register','frontend\FrontendController@register')->name('register');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
