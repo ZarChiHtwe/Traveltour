@@ -52,7 +52,37 @@
             <td>{{$row->status}}</td>
             <td>
               <a href="{{route('cars.edit',$row->id)}}"  class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
-              <a href="{{route('cars.show',$row->id)}}"  class="btn btn-outline-info"><i class="fas fa-info"></i></a>
+              <!-- <a href="{{route('cars.show',$row->id)}}"  class="btn btn-outline-info"><i class="fas fa-info"></i></a> -->
+
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal{{$row->id}}">
+                <i class="fas fa-info"></i>
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">{{$row->carnumber}}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      @php
+                      $photo=json_decode($row->photo);
+                      @endphp
+                      @foreach($photo as $photos)
+                      <img src="{{asset($photos)}}" width="120px">
+                      @endforeach
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <form action="{{route('cars.destroy',$row->id)}}" method="POST" onsubmit="return confirm('Are you Sure?')">
                 @csrf

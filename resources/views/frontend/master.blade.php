@@ -84,6 +84,8 @@
 		</div>
 	</div>
 
+	@yield('script')
+
 	<script>
 		var myVar;
 

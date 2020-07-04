@@ -46,8 +46,6 @@ class CarController extends Controller
             'photo.*' => 'required|mimes:jpeg,bmp,png',
             'status'=> 'required|max:191',
             'cartype'=> 'required'
-
-
         ]);
         if ($files=$request->file('photo')) {
             $destinationPath=public_path('images');
