@@ -24,6 +24,8 @@ Route::resource('cartypes','backend\CartypeController');
 Route::resource('cars','backend\CarController');
 
 Route::resource('hotels','backend\HotelController');
+Route::resource('locations','backend\LocationController');
+Route::resource('travelroutes','backend\TravelrouteController');
 
 
 Route::get('frontend','frontend\FrontendController@index')->name('index');

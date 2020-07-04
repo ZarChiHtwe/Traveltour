@@ -13,7 +13,7 @@
           <h6 class="m-0 font-weight-bold text-primary">Create new Hotel </h6>
     </div>
     <div class="card-body">
-      <form action="{{route('hotels.store')}}" method="POST" >
+      <form action="{{route('hotels.store')}}" method="POST" enctype="multipart/form-data" >
            @csrf
            <div class="form-group row">
                 <label  class="col-sm-2 col-form-label">Name</label>
@@ -28,6 +28,12 @@
               </div>
         </div>
         <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Photo</label>
+          <div class="col-sm-10">
+            <input type="file" name="photo[]" multiple="true" accept="image/*">
+          </div>
+        </div>
+        <div class="form-group row">
           <label  class="col-sm-2 col-form-label">Price</label>
           <div class="col-sm-10">
                <input type="text" class="form-control @error('price') is-invalid @enderror"  placeholder="Enter Price" name="price">
@@ -39,6 +45,29 @@
               @enderror
         </div>
   </div>
+  <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Address</label>
+          <div class="col-sm-10">
+               <input type="text" class="form-control @error('address') is-invalid @enderror"  placeholder="Enter Address" name="address">
+
+               @error('adderss')
+               <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message}}</strong>
+              </span>
+              @enderror
+        </div>
+  </div>
+    <div class="form-group row">
+        <label for="cartypeName" class="col-sm-2 col-form-label">Location</label>
+        <div class="col-sm-10">
+          <select class="form-control" name="location">
+            <option>Choose Location</option>
+            @foreach($locations as $row)
+            <option value="{{$row->id}}">{{$row->name}}</option>
+            @endforeach
+          </select>
+        </div>
+      </div>
 
   <div class="form-group row">
     <div class="col-sm-2"></div>

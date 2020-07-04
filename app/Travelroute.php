@@ -5,10 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Hotel extends Model
+class Travelroute extends Model
 {
     use SoftDeletes;
 
-
-    Protected $fillable=['name','photo','price','address','location_id'];
+    Protected $fillable = ['placefrom_id','placeto_id'];
 }

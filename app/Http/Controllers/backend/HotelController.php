@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Hotel;
+use App\Location;
 class HotelController extends Controller
 {
     /**
@@ -25,7 +26,8 @@ class HotelController extends Controller
      */
     public function create()
     {
-         return view('backend.hotels.create');
+        $locations = Location::all();
+        return view('backend.hotels.create',compact('locations'));
     }
 
     /**
@@ -38,18 +40,30 @@ class HotelController extends Controller
     {
         //validation
         $request->validate([
-            'name' => 'required|min:5|max:191',
-            'price' => 'required'
-        ]);
+            'name' => 'required|max:191',
+            'photo.*' => 'required|mimes:jpeg,bmp,png',
+            'price'  => 'required',
+            'address'=> 'required|max:191',
+            'location'=> 'required'
 
-        //Data insert
+
+        ]);
+        if ($files=$request->file('photo')) {
+            $destinationPath=public_path('images');
+            foreach($files as $img)
+            {
+                $Image=$img->getClientOriginalName().'.'.$img->extension();
+                $img->move($destinationPath, $Image);
+                $data[]='images/'.$Image;
+            }
+        }
         $hotel = new Hotel;
         $hotel->name = $request->name;
+        $hotel->photo = json_encode($data);
         $hotel->price = $request->price;
-
+        $hotel->address = $request->address;
+        $hotel->location_id = $request->location;
         $hotel->save();
-
-        //return
         return redirect()->route('hotels.index');
     }
 
@@ -72,8 +86,9 @@ class HotelController extends Controller
      */
     public function edit($id)
     {
-        $hotel = Hotel::find($id);
-       return view('backend.hotels.edit',compact('hotel'));
+       $hotel = Hotel::find($id);
+        $locations = Location::all();
+        return view('backend.hotels.edit',compact('hotel','locations'));
     }
 
     /**
@@ -85,20 +100,46 @@ class HotelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //validation
-        $request->validate([
-            'name' => 'required|min:5|max:191',
-            'price' => 'required'
+       $request->validate([
+            'name' => 'required|max:191',
+            'price'  => 'required',
+            'address'=> 'required|max:191',
+            'location'=> 'required'
+
+
         ]);
+        $old=$request->oldphoto;
 
-        //Data insert
-        $hotel =  Hotel::find($id);
+        if ($request->hasFile('photo')) {
+           $files=$request->file('photo');
+                $destinationPath=public_path('images');
+                foreach($files as $img)
+                {
+                    $Image=$img->getClientOriginalName().'.'.$img->extension();
+                    $img->move($destinationPath, $Image);
+                    $photo[]='images/'.$Image;
+                }
+
+            $data=json_encode($photo);
+            // unlink($old);
+            $decold=json_decode($old);
+            foreach($decold as $dc)
+            {
+                unlink($dc);
+            }
+        }
+        else
+        {
+            $data=$request->oldphoto;
+        }
+
+        $hotel = Hotel::find($id);
         $hotel->name = $request->name;
+        $hotel->photo = $data;
         $hotel->price = $request->price;
-
+        $hotel->address = $request->address;
+        $hotel->location_id = $request->location;
         $hotel->save();
-
-        //return
         return redirect()->route('hotels.index');
     }
 
