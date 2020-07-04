@@ -27,6 +27,8 @@ Route::resource('hotels','backend\HotelController');
 Route::resource('locations','backend\LocationController');
 Route::resource('travelroutes','backend\TravelrouteController');
 
+Route::resource('packages','backend\PackageController');
+
 
 Route::get('frontend','frontend\FrontendController@index')->name('index');
 Route::get('about','frontend\FrontendController@about')->name('about');

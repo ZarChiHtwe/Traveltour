@@ -51,6 +51,23 @@
 							<div class="col-lg-12 col-md-12 col-sm-12 mt-5">
 								<h4>Package List:</h4>
 							</div>
+							@foreach($packages as $row)
+								<div class="col-lg-6 col-md-6 col-sm-12 mt-3">
+								<div class="card">
+									<a href=""><img class="card-img-top" src="{{asset($row->photo)}}" alt="Card image cap"></a>
+									<div class="text-block"><a href="">{{$row->totalprice}}Ks</a></div>
+									<div class="card-body">
+										<a href=""><h5 class="card-title">{{$row->name}}</h5></a>
+										<p class="card-text">Deapture Date: {{$row->depaturedate}}</p>
+										<div class="row">
+											<div class="col-lg-8 col-md-8 col-sm-8">
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-4"><i class="far fa-clock"></i> {{$row->depaturetime}}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							@endforeach
 							<div class="col-lg-6 col-md-6 col-sm-12 mt-3">
 								<div class="card">
 									<a href=""><img class="card-img-top" src="image/inlay.jpg" alt="Card image cap"></a>

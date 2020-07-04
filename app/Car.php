@@ -9,7 +9,16 @@ class Car extends Model
 {
     use SoftDeletes;
 
-
     Protected $fillable=['carnumber','photo','status','cartype_id'];
+
+    public function cartypes()
+    {
+    	return $this->belongsTo('App\Cartype');
+    }
+
+    public function packages()
+    {
+    	return $this->hasMany('App\Package');
+    }
 
 }

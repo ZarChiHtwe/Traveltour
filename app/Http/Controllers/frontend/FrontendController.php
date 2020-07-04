@@ -4,10 +4,11 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Package;
 
 class FrontendController extends Controller
 {
-    public function index()
+    public function index($value='')
     {
        
         return view('frontend.index');
@@ -23,14 +24,14 @@ class FrontendController extends Controller
        
         return view('frontend.contact');
     }
-    public function package()
+    public function package($value='')
     {
-       
-        return view('frontend.package');
+        $packages = Package::all();
+        return view('frontend.package',compact('packages'));
     }
-    public function packagedetail()
+    public function packagedetail($id)
     {
-       
+        
         return view('frontend.packagedetail');
     }
     public function login()
