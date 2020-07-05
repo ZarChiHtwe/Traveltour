@@ -19,6 +19,12 @@
   <link href="{{asset('backendtemplate/css/sb-admin-2.min.css')}}" rel="stylesheet">
   <link href="{{asset('backendtemplate/css/sb-admin-2.css')}}" rel="stylesheet">
 
+  @yield('css')
+
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('summernote/summernote.min.css')}}">
+
+  <script type="text/javascript" src="{{asset('summernote/summernote.min.js')}}"></script> -->
+
 </head>
 
 <body id="page-top">
@@ -379,6 +385,16 @@
       </div>
     </div>
   </div>
+
+  <!-- <script type="text/javascript">
+    $('#summernote').summernote({
+        placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 100
+      });
+  </script> -->
+
+  @yield('javascript')
 
    <!-- Bootstrap core JavaScript-->
   <script src="{{asset('backendtemplate/vendor/jquery/jquery.min.js')}}"></script>

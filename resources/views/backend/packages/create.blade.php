@@ -1,6 +1,10 @@
 @extends('backend.master')
-@section('content')
 
+@section('css')
+  <link rel="stylesheet" type="text/css" href="{{asset('summernote/summernote.min.css')}}">
+@endsection
+
+@section('content')
 <div class="row">
   <div class="col-lg-6 col-md-6 col-sm-6">
     <h1 class="h3 mb-2 text-gray-800">Package</h1>
@@ -127,6 +131,18 @@
         @enderror
       </div>
     </div>
+    <div class="form-group row">
+      <label  class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <textarea id="summernote" class="form-control"></textarea>
+
+        @error('description')
+        <span class="invalid-feedback" role="alert">
+          <strong>{{ $message}}</strong>
+        </span>
+        @enderror
+      </div>
+    </div>
 
     <div class="form-group row">
       <div class="col-sm-2"></div>
@@ -138,4 +154,16 @@
  </form>
 </div>
 </div>
+@endsection
+
+@section('javascript')
+<script type="text/javascript">
+    $('#summernote').summernote({
+        placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 100
+      });
+  </script>
+  
+<script type="text/javascript" src="{{asset('summernote/summernote.min.js')}}"></script>
 @endsection

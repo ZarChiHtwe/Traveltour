@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('dashboard','backend\BackendController@index')->name('dashboard');
 
@@ -29,14 +29,17 @@ Route::resource('travelroutes','backend\TravelrouteController');
 
 Route::resource('packages','backend\PackageController');
 
+Route::resource('bookings','backend\BookingController');
 
-Route::get('frontend','frontend\FrontendController@index')->name('index');
+
+Route::get('/','frontend\FrontendController@index')->name('index');
 Route::get('about','frontend\FrontendController@about')->name('about');
 Route::get('contact','frontend\FrontendController@contact')->name('contact');
 Route::get('package','frontend\FrontendController@package')->name('package');
-Route::get('packagedetail','frontend\FrontendController@packagedetail')->name('packagedetail');
+Route::get('packagedetail/{id}','frontend\FrontendController@packagedetail')->name('packagedetail');
 // Route::get('login','frontend\FrontendController@login')->name('login');
 Route::get('register','frontend\FrontendController@register')->name('register');
+Route::get('login','frontend\FrontController@login')->name('login');
 
 Auth::routes();
 

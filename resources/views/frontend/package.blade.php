@@ -54,10 +54,10 @@
 							@foreach($packages as $row)
 								<div class="col-lg-6 col-md-6 col-sm-12 mt-3">
 								<div class="card">
-									<a href=""><img class="card-img-top" src="{{asset($row->photo)}}" alt="Card image cap"></a>
+									<a href="{{route('packagedetail',$row->id)}}"><img class="card-img-top" src="{{asset($row->photo)}}" alt="Card image cap"></a>
 									<div class="text-block"><a href="">{{$row->totalprice}}Ks</a></div>
 									<div class="card-body">
-										<a href=""><h5 class="card-title">{{$row->name}}</h5></a>
+										<a href="{{route('packagedetail',$row->id)}}"><h5 class="card-title">{{$row->name}}</h5></a>
 										<p class="card-text">Deapture Date: {{$row->depaturedate}}</p>
 										<div class="row">
 											<div class="col-lg-8 col-md-8 col-sm-8">

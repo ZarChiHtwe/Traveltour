@@ -9,5 +9,5 @@ class Location extends Model
 {
     use SoftDeletes;
 
-    Protected $fillable = ['name','description'];
+    Protected $fillable = ['name','photo','description'];
 }

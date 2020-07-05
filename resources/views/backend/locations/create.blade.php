@@ -13,7 +13,7 @@
           <h6 class="m-0 font-weight-bold text-primary">Create new Locations </h6>
     </div>
     <div class="card-body">
-      <form action="{{route('locations.store')}}" method="POST" >
+      <form action="{{route('locations.store')}}" method="POST" enctype="multipart/form-data">
            @csrf
            <div class="form-group row">
                 <label  class="col-sm-2 col-form-label">Name</label>
@@ -26,6 +26,12 @@
                     </span>
                     @enderror
               </div>
+        </div>
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">Photo</label>
+          <div class="col-sm-10">
+            <input type="file" name="photo[]" multiple="true" accept="image/*">
+          </div>
         </div>
         <div class="form-group row">
           <label  class="col-sm-2 col-form-label">Description</label>

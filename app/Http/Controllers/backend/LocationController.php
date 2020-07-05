@@ -39,12 +39,25 @@ class LocationController extends Controller
          //validation
         $request->validate([
             'name' => 'required|min:5|max:191',
+            'photo.*' => 'required|mimes:jpeg,bmp,png',
             'description' => 'required'
         ]);
+
+        if ($files=$request->file('photo')) {
+            $destinationPath=public_path('images');
+            foreach($files as $img)
+            {
+                $Image=$img->getClientOriginalName().'.'.$img->extension();
+                $img->move($destinationPath, $Image);
+                $data[]='images/'.$Image;
+            }
+        }
+
 
         //Data insert
         $location = new Location;
         $location->name = $request->name;
+        $location->photo = json_encode($data);
         $location->description = $request->description;
 
         $location->save();
@@ -91,9 +104,35 @@ class LocationController extends Controller
             'description' => 'required'
         ]);
 
+        $old=$request->oldphoto;
+
+        if ($request->hasFile('photo')) {
+           $files=$request->file('photo');
+                $destinationPath=public_path('images');
+                foreach($files as $img)
+                {
+                    $Image=$img->getClientOriginalName().'.'.$img->extension();
+                    $img->move($destinationPath, $Image);
+                    $photo[]='images/'.$Image;
+                }
+
+            $data=json_encode($photo);
+            // unlink($old);
+            $decold=json_decode($old);
+            foreach($decold as $dc)
+            {
+                unlink($dc);
+            }
+        }
+        else
+        {
+            $data=$request->oldphoto;
+        }
+
         //Data insert
         $location = Location::find($id);
         $location->name = $request->name;
+        $location->photo = $data;
         $location->description = $request->description;
 
         $location->save();

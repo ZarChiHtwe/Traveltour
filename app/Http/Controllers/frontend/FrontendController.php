@@ -31,8 +31,8 @@ class FrontendController extends Controller
     }
     public function packagedetail($id)
     {
-        
-        return view('frontend.packagedetail');
+        $package=Package::find($id);
+        return view('frontend.packagedetail',compact('package'));
     }
     public function login()
     {
