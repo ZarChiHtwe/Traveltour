@@ -72,7 +72,7 @@
             <a class="collapse-item" href="{{route('cartypes.index')}}">CarType</a>
             <a class="collapse-item" href="{{route('locations.index')}}">Location</a>
             <a class="collapse-item" href="{{route('travelroutes.index')}}">Travel Route</a>
-            <a class="collapse-item" href="#">User</a>
+            <a class="collapse-item" href="{{route('users.index')}}">User</a>
           </div>
         </div>
       </li>
@@ -364,6 +364,17 @@
   <!-- Page level custom scripts -->
   <script src="{{asset('backendtemplate/js/demo/chart-area-demo.js')}}"></script>
   <script src="{{asset('backendtemplate/js/demo/chart-pie-demo.js')}}"></script>
+
+  <script type="text/javascript" src="{{asset('summernote/summernote.min.js')}}"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('#summernote').summernote();
+});
+</script>
+  
+
+
 
 </body>
 

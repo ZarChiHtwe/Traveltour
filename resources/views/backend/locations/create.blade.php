@@ -36,8 +36,7 @@
         <div class="form-group row">
           <label  class="col-sm-2 col-form-label">Description</label>
           <div class="col-sm-10">
-               <input type="text" class="form-control @error('description') is-invalid @enderror"  placeholder="Enter Description" name="description">
-
+               <textarea type="text" class="form-control @error('description') is-invalid @enderror"  placeholder="Enter Description" name="description"></textarea>
                @error('description')
                <span class="invalid-feedback" role="alert">
                     <strong>{{ $message}}</strong>

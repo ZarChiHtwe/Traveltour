@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Travelroute;
 use App\Location;
+
 class TravelrouteController extends Controller
 {
     /**

@@ -31,6 +31,8 @@ Route::resource('packages','backend\PackageController');
 
 Route::resource('bookings','backend\BookingController');
 
+Route::resource('users','backend\UserController');
+
 Route::get('confirmlist','backend\BookingController@confirmlist')->name('confirmlist');
 
 

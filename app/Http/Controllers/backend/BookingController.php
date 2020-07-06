@@ -4,6 +4,8 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 use App\Booking;
 use App\User;
 use App\Package;
@@ -101,6 +103,15 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        // $data=array(
+        //     'name'=>$request->name,
+        //     'voucherno'=>$request->voucherno,
+        //     'grandtotal'=>$request->grandtotal,
+        //     'numberofpeople'=>$request->numpeople,
+        // );
+        // Mail::to('kobunny123@gmail.com')->send(new SendMail($data));
+        
         //Data insert
         $booking = Booking::find($id);
         $booking->status = 'Confirm';

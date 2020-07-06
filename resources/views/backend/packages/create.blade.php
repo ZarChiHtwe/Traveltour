@@ -122,19 +122,7 @@
     <div class="form-group row">
       <label  class="col-sm-2 col-form-label">Description</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control @error('description') is-invalid @enderror"   placeholder="Enter Description" name="description">
-
-        @error('description')
-        <span class="invalid-feedback" role="alert">
-          <strong>{{ $message}}</strong>
-        </span>
-        @enderror
-      </div>
-    </div>
-    <div class="form-group row">
-      <label  class="col-sm-2 col-form-label">Description</label>
-      <div class="col-sm-10">
-        <textarea id="summernote" class="form-control"></textarea>
+        <textarea id="summernote" class="form-control" name="description"></textarea>
         @error('description')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message}}</strong>
@@ -155,15 +143,4 @@
 </div>
 @endsection
 
-@section('javascript')
-<script type="text/javascript">
-    $('#summernote').summernote({
-        placeholder: 'Hello Bootstrap 4',
-        tabsize: 2,
-        height: 100
-      });
-  </script>
-  
-<script type="text/javascript" src="{{asset('summernote/summernote.min.js')}}"></script>
 
-@endsection

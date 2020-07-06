@@ -7,6 +7,7 @@
     <div class="col-lg-6">
       <h1 class="h3 mb-2 text-gray-800">Booking Detail</h1>
     </div>
+    <div class="col-lg-6 text-right"><a href="{{route('bookings.index')}}" class="btn btn-outline-dark"><i class="fas fa-backward" ></i></a>
   </div>
 
   <!-- DataTales Example -->
