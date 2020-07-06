@@ -10,10 +10,9 @@
   </div>
 
   <!-- DataTales Example -->
-  
   <div class="card shadow mt-4 mb-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Booking Pending List</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Booking Confirm List</h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -54,12 +53,6 @@
             <td>{{$row->grandtotal}}</td>
             <td>{{$row->status}}</td>
             <td>
-              <form action="{{route('bookings.update',$row->id)}}" method="POST" onsubmit="return confirm('Have You Confirmed?')">
-                @csrf
-                @method('PUT')
-                <input type="submit"  name="btnsubmit" value="Confrim" class="btn btn-outline-success">
-              </form>
-              <!-- <a href="#" class="btn btn-outline-warning">Confirm</a> -->
               <a href="{{route('bookings.show',$row->id)}}"  class="btn btn-outline-info"><i class="fas fa-info"></i></a>
             </td>
           </tr>

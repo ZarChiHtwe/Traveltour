@@ -22,21 +22,23 @@
 						<div class="col-lg-7 col-md-7 col-sm-12">
 							<h2>{{$package->name}}</h2><br>
 							<p>
+								Hotel Name: {{$package->hotels->name}}<br>
 								Depature Date: {{$package->depaturedate}}<br>
 								Depature Time: {{$package->depaturetime}}<br>
 								Duration: {{$package->duration}}<br>
-								TransportType: {{$package->car_id}}<br>
+								TransportType: {{$package->cars->cartypes->name}}<br>
 								Total Price: {{$package->totalprice}}<br>
 								Description: {{$package->description}}<br>
 							</p>
 							<input type="hidden" value="{{$package->id}}" name="package">
 							<input type="hidden" value="{{$package->totalprice}}" name="totalprice">
-							<p class="mr-2">
+							<p class="mr-4">
 								<div class="row">
-									<div class="col-lg-6 col-md-6 col-sm-6">
-										Amount of People: <input type="number" name="people" style="width: 100px;">
+									<div class="col-lg-9 col-md-9 col-sm-9">
+										Amount of People: 
+										<input type="number" class="form-control" name="people" style="width: 100px;">
 									</div>
-									<div class="col-lg-6 col-md-6 col-sm-6 text-right">
+									<div class="col-lg-3 col-md-3 col-sm-3 text-right">
 										<button type="submit" class="button btn">Book</button>
 									</div>
 								</div>

@@ -13,7 +13,7 @@ class Car extends Model
 
     public function cartypes()
     {
-    	return $this->belongsTo('App\Cartype');
+    	return $this->belongsTo('App\Cartype','cartype_id');
     }
 
     public function packages()

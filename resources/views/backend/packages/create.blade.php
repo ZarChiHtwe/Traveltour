@@ -114,7 +114,7 @@
         <select class="form-control" name="route">
           <option>Choose Travel Route</option>
           @foreach($travelroutes as $row)
-          <option value="{{$row->id}}">{{$row->placefrom_id}} to {{$row->placeto_id}} </option>
+          <option value="{{$row->id}}">{{$row->fromlocations->name}} to {{$row->tolocations->name}} </option>
           @endforeach
         </select>
       </div>
@@ -135,7 +135,6 @@
       <label  class="col-sm-2 col-form-label">Description</label>
       <div class="col-sm-10">
         <textarea id="summernote" class="form-control"></textarea>
-
         @error('description')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message}}</strong>
@@ -166,4 +165,5 @@
   </script>
   
 <script type="text/javascript" src="{{asset('summernote/summernote.min.js')}}"></script>
+
 @endsection

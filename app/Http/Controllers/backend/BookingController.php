@@ -5,6 +5,8 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Booking;
+use App\User;
+use App\Package;
 
 class BookingController extends Controller
 {
@@ -15,8 +17,16 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = Booking::all();
-     return view('backend.bookings.index',compact('bookings'));
+        $bookings = Booking::all()
+                    ->where('status','Pending');
+        return view('backend.bookings.index',compact('bookings'));
+    }
+
+    public function confirmlist()
+    {
+        $bookings = Booking::all()
+                    ->where('status','Confirm');
+        return view('backend.bookings.confirmlist',compact('bookings'));
     }
 
     /**
@@ -67,7 +77,8 @@ class BookingController extends Controller
      */
     public function show($id)
     {
-        //
+        $booking = Booking::find($id);
+        return view('backend.bookings.detail',compact('booking'));
     }
 
     /**
@@ -90,7 +101,13 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Data insert
+        $booking = Booking::find($id);
+        $booking->status = 'Confirm';
+        $booking->save();
+
+        //return
+        return redirect()->route('bookings.index');
     }
 
     /**

@@ -31,6 +31,8 @@ Route::resource('packages','backend\PackageController');
 
 Route::resource('bookings','backend\BookingController');
 
+Route::get('confirmlist','backend\BookingController@confirmlist')->name('confirmlist');
+
 
 Route::get('/','frontend\FrontendController@index')->name('index');
 Route::get('about','frontend\FrontendController@about')->name('about');

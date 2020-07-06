@@ -43,8 +43,8 @@
           @foreach($travelroutes as $row)
           <tr>
             <td>{{$i++}}</td>
-            <td>{{$row->placefrom_id}}</td>
-            <td>{{$row->placeto_id}}</td>
+            <td>{{$row->fromlocations->name}}</td>
+            <td>{{$row->tolocations->name}}</td>
             <td>
               <a href="{{route('travelroutes.edit',$row->id)}}"  class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
               <form action="{{route('travelroutes.destroy',$row->id)}}" method="POST" onsubmit="return confirm('Are you Sure?')">

@@ -2,14 +2,14 @@
 @section('content')
 
 
-	<div class="body">
-		<div class="container-fluid home-banner">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12">
-					<h2 class="text-center">Travel with Let's Travel</h2>
-				</div>
+<div class="body">
+	<div class="container-fluid home-banner">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<h2 class="text-center">Travel with Let's Travel</h2>
 			</div>
-			<div class="row">
+		</div>
+		<div class="row">
 					<!-- <div class="col-lg-12 col-md-12 col-sm-12 mt-3 text-center">
 						Choose Your Favouriate Plan:
 					</div> -->
@@ -19,21 +19,27 @@
 								<div class="col-lg-2 col-md-2 col-sm-12">
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-12 mt-2">
-									<select class="form-control">
-										<option>Hello</option>
-										<option>Hello</option>
+									<select class="form-control" name="from">
+										<option>Choose Place From</option>
+										@foreach($locations as $row)
+										<option value="{{$row->id}}">{{$row->name}}</option>
+										@endforeach
 									</select>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-12 mt-2">
-									<select class="form-control">
-										<option>Hello</option>
-										<option>Hello</option>
+									<select class="form-control" name="cartype">
+										<option>Choose Place To</option>
+										@foreach($locations as $row)
+										<option value="{{$row->id}}">{{$row->name}}</option>
+										@endforeach
 									</select>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-12 mt-2">
-									<select class="form-control">
-										<option>Hello</option>
-										<option>Hello</option>
+									<select class="form-control" name="cartype">
+										<option>Choose Transport Type</option>
+										@foreach($cartypes as $row)
+										<option value="{{$row->id}}">{{$row->name}}</option>
+										@endforeach
 									</select>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-12 mt-2">
@@ -124,7 +130,7 @@
 							</p>
 						</p>
 					</div>
-					<div class="col-lg-5 col-md-5 col-sm-12 mt-5">
+					<div class="col-lg-5 col-md-5 col-sm-12 text-center mt-5">
 						<img src="{{asset('frontendtemplate/image/pexels.jpeg')}}" class="img-fluid" style="height: 500px;">
 					</div>
 				</div>
@@ -133,4 +139,4 @@
 		</div>
 
 	</body>
-@endsection
+	@endsection
