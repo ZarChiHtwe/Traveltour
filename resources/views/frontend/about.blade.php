@@ -10,19 +10,12 @@
 				</div>
 			</div>
 		<div class="container mt-5 about-page">
-		<h3>Our History</h3>
-		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<h3>About us</h3>
+		<p> If South East Asia has been at the centre of your adventure dipped dream trip, the rich heritage, colonial charm and heavily steeped geographical diversity of Myanmar will no doubt have pulled at your senses. It’s a country whose doors have been opened widely in recent years and one which here with FlyMya, we hope to open even further as it continues to boom as a must-visit hub on the traveller’s trail.
+		</p>
+		<p>
+		FlyMya sets its sights on removing the muss and fuss from the process by bringing you a newly revamped one-stop shop for domestic bookings online and placing this beautiful country alongside its South East Asian neighbour, and the rest of the world. From the hotspots to the remote, FlyMya gives travelers the choice of cars, tours and transport rental to over 10 destinations. And after just few clicks of the mouse, within minutes you have yourself what we hope will be the trip of a lifetime.
+		We’ve sent customers on their way to lose themselves within the vibrant city hustles of Yangon, explore the pagodas, monasteries and the sacred hilltop of Mandalay, to stare up at the world’s biggest standing Buddha image in Monywa and embark on the trekking pilgrimages in Kyaing Tong.</p>
 	</div>
 	<div class="container">
 		<div class="row">
