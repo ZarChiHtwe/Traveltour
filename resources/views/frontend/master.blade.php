@@ -12,8 +12,8 @@
 </head>
 <body onload="myFunction()" style="margin:0;">
 
-	<div id="loader"></div>
-	<div style="display:none;" id="myDiv" class="animate-bottom">
+	<!-- <div id="loader"></div> -->
+	<div id="myDiv" class="animate-bottom">
 		<div class="header">
 			<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
 				<div class="container">
@@ -65,9 +65,10 @@
 						<h4>Quick Links</h4>
 						<p>
 							<ul>
-								<li><a href="">Home</a></li>
-								<li><a href="">Package</a></li>
-								<li><a href="">Contact Us</a></li>
+								<li><a href="{{route('index')}}">Home</a></li>
+								<li><a href="{{route('about')}}">About</a></li>
+								<li><a href="{{route('package')}}">Package</a></li>
+								<li><a href="{{route('contact')}}">Contact Us</a></li>
 							</ul>
 						</p>
 					</div>
@@ -79,6 +80,10 @@
 							<span><i class="fas fa-map-marker-alt"></i></span> No.B(3/5), Yadanar Main Road, Malika Housing, Thingangyun Township, Yangon, Myanmar.
 						</p>
 					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 text-center">
+						<hr style="background: white; width: 100%;">
+						<p style="color: white;">Copyright © Code 20 / Created by Code 20</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -86,7 +91,7 @@
 
 	@yield('script')
 
-	<script>
+	<!-- <script>
 		var myVar;
 
 		function myFunction() {
@@ -97,7 +102,7 @@
 			document.getElementById("loader").style.display = "none";
 			document.getElementById("myDiv").style.display = "block";
 		}
-	</script>
+	</script> -->
 	<script type="text/javascript" src="{{asset('frontendtemplate/js/jquery.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('frontendtemplate/js/bootstrap.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('frontendtemplate/js/bootstrap.bundle.min.js')}}"></script>

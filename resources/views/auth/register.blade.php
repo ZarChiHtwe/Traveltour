@@ -142,7 +142,7 @@
                             {{ __('Register') }}
                         </button>
                        
-                    <a href="{{route('register')}}" style="color: blue;">Already Have an Account!!</a>
+                    <a href="{{route('login')}}" style="color: blue;">Already Have an Account!!</a>
                 </form>
             </div>
         </div>

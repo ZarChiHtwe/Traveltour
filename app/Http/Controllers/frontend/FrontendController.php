@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Package;
 use App\Location;
 use App\Cartype;
+use App\Travelroute;
 
 class FrontendController extends Controller
 {
@@ -24,7 +25,6 @@ class FrontendController extends Controller
     }
      public function contact()
     {
-        
         return view('frontend.contact');
     }
     public function package($value='')
@@ -34,6 +34,32 @@ class FrontendController extends Controller
                         ->take(4);
         return view('frontend.package',compact('packages','popular'));
     }
+    public function custompackage(Request $request)
+    {
+        $request->validate([
+            'from' => 'required',
+            'to' => 'required'
+        ]);
+
+
+        $popular = Package::all()
+                        ->take(4);
+
+        // dd($request);
+        $route = Travelroute::select('id')
+                ->where('placefrom_id','=',$request->from)
+                ->where('placeto_id','=',$request->to)
+                ->get();
+
+                // dd($route);x
+
+                foreach ($route as $route_id) {
+                    $custompackage = Package::where('route_id',$route_id->id)->get();
+                }
+        
+
+        return view('frontend.custompackage',compact('custompackage','popular'));
+    }
     public function packagedetail($id)
     {
         $package=Package::find($id);
@@ -41,12 +67,10 @@ class FrontendController extends Controller
     }
     public function login()
     {
-       
         return view('frontend.login');
     }
     public function register()
-    {
-       
+    {  
         return view('frontend.register');
     }
 }

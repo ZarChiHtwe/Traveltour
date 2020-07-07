@@ -1,7 +1,6 @@
 @extends('frontend.master')
 @section('content')
 
-
 <div class="body">
 	<div class="container-fluid home-banner">
 		<div class="row">
@@ -14,36 +13,29 @@
 						Choose Your Favouriate Plan:
 					</div> -->
 					<div class="col-lg-12 col-md-12 col-sm-12 mt-2 ">
-						<form>
+						<form action="{{route('custompackage')}}" method="GET">
+							@csrf
 							<div class="row">
-								<div class="col-lg-2 col-md-2 col-sm-12">
+								<div class="col-lg-3 col-md-3 col-sm-12">
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-12 mt-2">
 									<select class="form-control" name="from">
-										<option>Choose Place From</option>
+										<option>From</option>
 										@foreach($locations as $row)
 										<option value="{{$row->id}}">{{$row->name}}</option>
 										@endforeach
 									</select>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-12 mt-2">
-									<select class="form-control" name="cartype">
-										<option>Choose Place To</option>
+									<select class="form-control" name="to">
+										<option>To</option>
 										@foreach($locations as $row)
 										<option value="{{$row->id}}">{{$row->name}}</option>
 										@endforeach
 									</select>
 								</div>
-								<div class="col-lg-2 col-md-2 col-sm-12 mt-2">
-									<select class="form-control" name="cartype">
-										<option>Choose Transport Type</option>
-										@foreach($cartypes as $row)
-										<option value="{{$row->id}}">{{$row->name}}</option>
-										@endforeach
-									</select>
-								</div>
-								<div class="col-lg-2 col-md-2 col-sm-12 mt-2">
-									<a href="" class="btn w-100">Search</a>
+								<div class="col-lg-3 col-md-3 col-sm-12 mt-2 text-center">
+									<button type="submit" class="btn w-50">Search</button>
 								</div>
 								<div class="col-lg-2 col-md-2 col-sm-12">
 								</div>

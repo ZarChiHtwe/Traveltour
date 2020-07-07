@@ -26,6 +26,7 @@
               <th>Name</th>
               <th>price</th>
               <th>Address</th>
+              <th>Location</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -35,6 +36,7 @@
               <th>Name</th>
               <th>price</th>
               <th>Address</th>
+              <th>Location</th>
               <th>Action</th>
             </tr>
           </tfoot>
@@ -44,65 +46,58 @@
             <tr>
               <td>{{$i++}}</td>
               <td>{{$row->name}}</td>
-                      <!-- @php
-                      $photo=json_decode($row->photo);
-                      @endphp
-                      <td>
+              <td>{{$row->price}}</td>
+              <td>{{$row->address}}</td>
+              <td>{{$row->locations->name}}</td>
+              <td>
+                <a href="{{route('hotels.edit',$row->id)}}"  class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal{{$row->id}}">
+                  <i class="fas fa-info"></i>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{$row->name}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        @php
+                        $photo=json_decode($row->photo);
+                        @endphp
                         @foreach($photo as $photos)
                         <img src="{{asset($photos)}}" width="120px">
                         @endforeach
-                      </td> -->
-                      <td>{{$row->price}}</td>
-                      <td>{{$row->address}}</td>
-                      <td>
-                        <a href="{{route('hotels.edit',$row->id)}}"  class="btn btn-outline-warning" >Edit</a>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal{{$row->id}}">
-                          <i class="fas fa-info"></i>
-                        </button>
+                <form action="{{route('hotels.destroy',$row->id)}}" method="POST" onsubmit="return confirm('Are you Sure?')">
+                  @csrf
+                  @method('DELETE')
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal{{$row->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">{{$row->name}}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                @php
-                                $photo=json_decode($row->photo);
-                                @endphp
-                                @foreach($photo as $photos)
-                                <img src="{{asset($photos)}}" width="120px">
-                                @endforeach
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                  <input type="submit"  name="btnsubmit" value="DELETE" class="btn btn-outline-danger">
 
-                        <form action="{{route('hotels.destroy',$row->id)}}" method="POST" onsubmit="return confirm('Are you Sure?')">
-                          @csrf
-                          @method('DELETE')
+                </form>
+              </td>
+            </tr>
+            @endforeach
 
-                          <input type="submit"  name="btnsubmit" value="DELETE" class="btn btn-outline-danger">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-                        </form>
-                      </td>
-                    </tr>
-                    @endforeach
-                    
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        @endsection
+</div>
+@endsection

@@ -5,7 +5,7 @@
   <div class="col-lg-6">
    <h1 class="h3 mb-2 text-gray-800">Car</h1>
  </div>
- <div class="col-lg-6 text-right"><a href="{{route('cars.index')}}" class="btn btn-outline-dark"><i class="fas fa-backward" ></i></a>
+ <div class="col-lg-6 text-right"><a href="{{route('cars.create')}}" class="btn btn-outline-dark"><i class="fas fa-backward" ></i></a>
  </div>
 </div>
 <div class="card shadow mt-4 mb-4">

@@ -6,7 +6,7 @@
     <h1 class="h3 mb-2 text-gray-800">Car</h1>
   </div>
   <div class="col-lg-6 col-md-6 col-sm-6 text-right">
-    <a href="category_list.php" class="btn btn-outline-dark"><span><i class="fas fa-backward"></i></span></a>
+    <a href="{{route('cars.index')}}" class="btn btn-outline-dark"><span><i class="fas fa-backward"></i></span></a>
   </div>
 </div>
 <div class="card shadow mt-4 mb-4">

@@ -41,6 +41,7 @@ Route::get('about','frontend\FrontendController@about')->name('about');
 Route::get('contact','frontend\FrontendController@contact')->name('contact');
 Route::get('package','frontend\FrontendController@package')->name('package');
 Route::get('packagedetail/{id}','frontend\FrontendController@packagedetail')->name('packagedetail');
+Route::get('custompackage','frontend\FrontendController@custompackage')->name('custompackage');
 // Route::get('login','frontend\FrontendController@login')->name('login');
 Route::get('register','frontend\FrontendController@register')->name('register');
 Route::get('login','frontend\FrontController@login')->name('login');

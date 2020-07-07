@@ -22,16 +22,18 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>carnumber</th>
-              <th>status</th>
+              <th>Carnumber</th>
+              <th>CarType</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
              <th>No</th>
-             <th>carnumber</th>
-             <th>status</th>
+             <th>Carnumber</th>
+             <th>CarType</th>
+             <th>Status</th>
              <th>Action</th>
            </tr>
          </tfoot>
@@ -41,14 +43,7 @@
           <tr>
             <td>{{$i++}}</td>
             <td>{{$row->carnumber}}</td>
-            <!-- @php
-            $photo=json_decode($row->photo);
-            @endphp
-            <td>
-              @foreach($photo as $photos)
-              <img src="{{asset($photos)}}" width="120px">
-              @endforeach
-            </td> -->
+            <td>{{$row->cartypes->name}}</td>
             <td>{{$row->status}}</td>
             <td>
               <a href="{{route('cars.edit',$row->id)}}"  class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>

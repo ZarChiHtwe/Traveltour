@@ -9,6 +9,7 @@ use App\Mail\SendMail;
 use App\Booking;
 use App\User;
 use App\Package;
+use Auth;
 
 class BookingController extends Controller
 {
@@ -21,7 +22,9 @@ class BookingController extends Controller
     {
         $bookings = Booking::all()
                     ->where('status','Pending');
-        return view('backend.bookings.index',compact('bookings'));
+        $conbookings = Booking::all()
+                    ->where('status','Confirm');
+        return view('backend.bookings.index',compact('bookings','conbookings'));
     }
 
     public function confirmlist()
@@ -56,6 +59,8 @@ class BookingController extends Controller
 
         $grandtotal=$request->people*$request->totalprice;
 
+        $userid=Auth::id();
+
         // dd($grandtotal);
 
         $booking =new Booking;
@@ -65,7 +70,7 @@ class BookingController extends Controller
         $booking->numberofpeople=$request->people;
         $booking->status='Pending';
         $booking->package_id=$request->package;
-        $booking->user_id=2;
+        $booking->user_id=$userid;
         $booking->save();
 
         return redirect()->route('package');
@@ -104,13 +109,20 @@ class BookingController extends Controller
     public function update(Request $request, $id)
     {
 
-        // $data=array(
-        //     'name'=>$request->name,
-        //     'voucherno'=>$request->voucherno,
-        //     'grandtotal'=>$request->grandtotal,
-        //     'numberofpeople'=>$request->numpeople,
-        // );
-        // Mail::to('kobunny123@gmail.com')->send(new SendMail($data));
+        $data=array(
+            'name'=>$request->name,
+            'voucherno'=>$request->voucherno,
+            'grandtotal'=>$request->grandtotal,
+            'numberofpeople'=>$request->numpeople,
+            'car'=>$request->car,
+            'cartype'=>$request->cartype,
+            'hotel'=>$request->hotel,
+            'package'=>$request->package,
+            'depaturedate'=>$request->depaturedate,
+            'depaturetime'=>$request->depaturetime,
+            'duration'=>$request->duration,
+        );
+        Mail::to('kobunny123@gmail.com')->send(new SendMail($data));
         
         //Data insert
         $booking = Booking::find($id);

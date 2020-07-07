@@ -81,7 +81,8 @@
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-12">
 			<div class="form-register">
-				<form>
+				<form method="POST" action="{{ route('register') }}">
+                    @csrf
 					<h1> register </h1>
 					<label for="email"> name </label> <br>
 					<input type="text" id="name" name="name" placeholder=" name" required> <br>

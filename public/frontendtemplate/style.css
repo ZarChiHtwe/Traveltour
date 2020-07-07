@@ -16,7 +16,7 @@
 
 
 /* Center the loader */
-#loader {
+/*#loader {
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -42,7 +42,7 @@
 }
 
 /* Add animation to "page content" */
-.animate-bottom {
+/*.animate-bottom {
 	position: relative;
 	-webkit-animation-name: animatebottom;
 	-webkit-animation-duration: 1s;
@@ -67,7 +67,7 @@
 
 #myDiv {
 	display: none;
-}
+}*/
 
 
 div.body div.home-banner{

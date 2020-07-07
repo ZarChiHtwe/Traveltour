@@ -25,10 +25,10 @@
 								Hotel Name: {{$package->hotels->name}}<br>
 								Depature Date: {{$package->depaturedate}}<br>
 								Depature Time: {{$package->depaturetime}}<br>
-								Duration: {{$package->duration}}<br>
+								Duration: {{$package->duration}} Days<br>
 								TransportType: {{$package->cars->cartypes->name}}<br>
 								Total Price: {{$package->totalprice}}<br>
-								Description: {{$package->description}}<br>
+								Description: {!! $package->description !!}<br>
 							</p>
 							<input type="hidden" value="{{$package->id}}" name="package">
 							<input type="hidden" value="{{$package->totalprice}}" name="totalprice">

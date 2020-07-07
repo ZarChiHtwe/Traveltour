@@ -25,7 +25,6 @@
                     <tr>
                       <th>No</th>
                       <th>Name</th>
-                      <th>Description</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -33,7 +32,6 @@
                     <tr>
                        <th>No</th>
                       <th>Name</th>
-                      <th>Description</th>
                       <th>Action</th>
                     </tr>
                   </tfoot>
@@ -43,9 +41,8 @@
                     <tr>
                       <td>{{$i++}}</td>
                       <td>{{$row->name}}</td>
-                      <td>{{$row->description}}</td>
                       <td>
-                        <a href="{{route('locations.edit',$row->id)}}"  class="btn btn-outline-warning" >Edit</a>
+                        <a href="{{route('locations.edit',$row->id)}}"  class="btn btn-outline-warning" ><i class="fas fa-edit"></i></a>
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal{{$row->id}}">
@@ -69,6 +66,7 @@
                                 @foreach($photo as $photos)
                                 <img src="{{asset($photos)}}" width="120px">
                                 @endforeach
+                                <p>Description: {{ $row->description }}</p>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
