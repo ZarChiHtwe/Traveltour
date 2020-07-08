@@ -2,10 +2,17 @@
 @section('content')
 
 <div class="body">
-<div class="container-fluid banner">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <h2 class="text-center">Login</h2>
+<div class="breadcrumb breadcrumb_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb_iner">
+                    <div class="breadcrumb_iner_item text-center">
+                        <h2>LogIn</h2>
+                        <p>home . login</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

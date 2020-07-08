@@ -14,8 +14,16 @@ class FrontendController extends Controller
     public function index($value='')
     {
         $locations = Location::all();
-        $cartypes = Cartype::all();
-        return view('frontend.index',compact('locations','cartypes'));
+        $popular = Package::all()
+                    ->take(4);
+        return view('frontend.index',compact('locations','popular'));
+    }
+
+    public function search_route(Request $request)
+    {
+        $id=$request->id;
+        $route =Route::where('id','!=',$id)->get();
+        return $route;
     }
 
      public function about()
@@ -30,9 +38,7 @@ class FrontendController extends Controller
     public function package($value='')
     {
         $packages = Package::all();
-        $popular = Package::all()
-                        ->take(4);
-        return view('frontend.package',compact('packages','popular'));
+        return view('frontend.package',compact('packages'));
     }
     public function custompackage(Request $request)
     {
@@ -40,10 +46,6 @@ class FrontendController extends Controller
             'from' => 'required',
             'to' => 'required'
         ]);
-
-
-        $popular = Package::all()
-                        ->take(4);
 
         // dd($request);
         $route = Travelroute::select('id')
@@ -58,7 +60,7 @@ class FrontendController extends Controller
                 }
         
 
-        return view('frontend.custompackage',compact('custompackage','popular'));
+        return view('frontend.custompackage',compact('custompackage'));
     }
     public function packagedetail($id)
     {

@@ -9,6 +9,7 @@ use App\Car;
 use App\Hotel;
 use App\Travelroute;
 use App\Package;
+use App\Booking;
 
 class PackageController extends Controller
 {
@@ -19,6 +20,8 @@ class PackageController extends Controller
      */
     public function index()
     {
+
+
         $packages = Package::all();
         return view('backend.packages.index',compact('packages'));
     }
