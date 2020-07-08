@@ -1,14 +1,23 @@
 @extends('frontend.master')
 @section('content')
 
-<div class="body">
-<div class="container-fluid banner">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <h2 class="text-center">Login</h2>
+
+    <div class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item text-center">
+                            <h2>About Us</h2>
+                            <p>home . about us</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
+<div class="body">
 <div class="container">
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-12">

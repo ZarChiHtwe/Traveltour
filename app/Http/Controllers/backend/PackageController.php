@@ -61,7 +61,7 @@ class PackageController extends Controller
         // File Upload
         $imageName =time().'.'.$request->photo->extension();
         $request->photo->move(public_path('images'),$imageName);
-        $filepath='images/'.$imageName;
+        $filepath='images/'.$imageName; 
 
         $carprice = Cartype::where('id',$request->car)
                         ->value('price');
