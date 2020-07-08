@@ -75,8 +75,10 @@
 								<label for="adults">From</label>
 								<div class="form-field">
 									<i class="icon fas fa-arrow-down"></i>
+
 									<select name="from" class="form-control from-select">
 										<option style="color: black;">From</option>
+
 										@foreach($locations as $row)
 										<option value="{{$row->id}}" style="color: black;">{{$row->name}}</option>
 										@endforeach
@@ -89,8 +91,10 @@
 								<label for="adults">To</label>
 								<div class="form-field">
 									<i class="icon fas fa-arrow-down"></i>
+
 									<select name="to" class="form-control to-select">
 										<option style="color: black;">To</option>
+
 										@foreach($locations as $row)
 										<option value="{{$row->id}}" style="color: black;">{{$row->name}}</option>
 										@endforeach
@@ -158,7 +162,9 @@
 			@foreach($popular as $row)
 			<div class="col-lg-6 col-md-6">
 				<div class="single_place">
+
 					<img src="{{$row->photo}}" alt="" class="img-fluid" style="width: 100%; height: 400px;">
+
 					<div class="hover_Text d-flex align-items-end justify-content-between">
 						<div class="hover_text_iner">
 							<a href="#" class="place_btn">travel</a>

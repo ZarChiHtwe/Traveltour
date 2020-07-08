@@ -1,7 +1,11 @@
 
+
 @extends('frontend.master')
 @section('content')
+
+
 <div class="body">
+
     <div class="breadcrumb breadcrumb_bg">
     <div class="container">
         <div class="row">
@@ -16,6 +20,8 @@
         </div>
     </div>
 </div>
+</div>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12">
