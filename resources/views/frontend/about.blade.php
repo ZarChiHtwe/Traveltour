@@ -35,14 +35,15 @@
     						</div>
     						<div class="story_thumb">
     							<div class="row">
-    								<div class="col-lg-5 col-md-6">
+    								<div class="col-lg-6 col-md-6">
     									<div class="thumb padd_1">
-    										<img src="{{asset('frontendtemplate/images/travel.jpg')}}" alt="">
+    										<img src="{{asset('frontendtemplate/images/about.jpg')}}" alt="" class="img-fluid" style="width: 100%; height: 350px;">
     									</div>
     								</div>
     								<div class="col-lg-6 col-md-6">
     									<div class="thumb">
-    										<img src="{{asset('frontendtemplate/images/travel.jpg')}}" alt="">
+    										<img src="{{asset('frontendtemplate/images/about1.jpg')}}" alt="" class="img-fluid" 
+                                            style="width: 100%; height: 350px;">
     									</div>
     								</div>
     							</div>

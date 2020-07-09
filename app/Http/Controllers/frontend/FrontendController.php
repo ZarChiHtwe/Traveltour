@@ -8,7 +8,8 @@ use App\Package;
 use App\Location;
 use App\Cartype;
 use App\Travelroute;
-
+use App\User;
+// use App\Route;
 class FrontendController extends Controller
 {
     public function index($value='')
@@ -22,9 +23,12 @@ class FrontendController extends Controller
     public function search_route(Request $request)
     {
         $id=$request->id;
-        $route =Route::where('id','!=',$id)->get();
+        
+        $route =Location::where('id','!=',$id)->get();
         return $route;
     }
+
+    
 
      public function about()
     {

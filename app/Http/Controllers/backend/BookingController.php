@@ -73,7 +73,7 @@ class BookingController extends Controller
         $booking->user_id=$userid;
         $booking->save();
 
-        return redirect()->route('package');
+        return redirect()->route('package')->with('reply','Your Booking is successful. Wait for our reply.');
     }
 
     /**
@@ -109,6 +109,8 @@ class BookingController extends Controller
     public function update(Request $request, $id)
     {
 
+        $date=date('Y-m-d');
+
         $data=array(
             'name'=>$request->name,
             'voucherno'=>$request->voucherno,
@@ -121,6 +123,7 @@ class BookingController extends Controller
             'depaturedate'=>$request->depaturedate,
             'depaturetime'=>$request->depaturetime,
             'duration'=>$request->duration,
+            'date'=> $date,
         );
         Mail::to('kobunny123@gmail.com')->send(new SendMail($data));
         

@@ -1,4 +1,9 @@
 @extends('backend.master')
+
+@section('css')
+  <link rel="stylesheet" type="text/css" href="{{asset('summernote/summernote.min.css')}}">
+@endsection
+
 @section('content')
 
 <div class="row">
@@ -98,8 +103,7 @@
     <div class="form-group row">
       <label  class="col-sm-2 col-form-label">Description</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control @error('description') is-invalid @enderror"   placeholder="Enter Description" name="description" value="{{$package->description}}">
-
+        <textarea id="summernote" class="form-control" name="description">{{$package->description}}</textarea>
         @error('description')
         <span class="invalid-feedback" role="alert">
           <strong>{{ $message}}</strong>

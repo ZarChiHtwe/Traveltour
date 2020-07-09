@@ -15,9 +15,18 @@
 		</div>
 	</div>
 </div>
+
 <div class="popular_places_area">
 	<div class="container">
 		<div class="row">
+			@if($message=Session::get('reply'))
+			<div class="alert alert-success alert-block">
+				<button type="button" class="close" data-dismiss="alert">
+					X
+				</button>
+				<strong>{{$message}}</strong>
+			</div>
+			@endif
 			<div class="col-lg-12">
 				<div class="row">
 					@foreach($packages as $row)

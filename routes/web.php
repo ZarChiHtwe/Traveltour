@@ -40,6 +40,9 @@ Route::resource('bookings','backend\BookingController');
 
 Route::get('/','frontend\FrontendController@index')->name('index');
 
+Route::post('/search_route','frontend\FrontendController@search_route')->name('search_route');
+
+
 Route::get('about','frontend\FrontendController@about')->name('about');
 
 Route::get('contact','frontend\FrontendController@contact')->name('contact');

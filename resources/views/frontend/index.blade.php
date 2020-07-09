@@ -11,13 +11,13 @@
 							<div class="slider-text-inner text-center">
 								<h2>Welcome to the Travel and Tour</h2>
 								<h1>Open to new Experience</h1>
-								<p><a class="btn btn-primary btn-demo" href="#"></i> View Detail</a> <a class="btn btn-primary btn-learn">Read More</a></p>
+								<p><a class="btn btn-primary btn-demo" href="{{route('package')}}"></i> View Detail</a> <a class="btn btn-primary btn-learn" href="{{route('about')}}">Read More</a></p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</li>
-			<li style="background-image: url(frontendtemplate/images/bg4.jpg);">
+			<li style="background-image: url(frontendtemplate/images/bg3.jpg);">
 				<div class="overlay"></div>
 				<div class="container-fluid">
 					<div class="row">
@@ -25,7 +25,7 @@
 							<div class="slider-text-inner text-center">
 								<h2>Discover &amp; Enjoy</h2>
 								<h1>Open to new Experience</h1>
-								<p><a class="btn btn-primary btn-demo" href="#"></i> View Detail</a> <a class="btn btn-primary btn-learn">Know More</a></p>
+								<p><a class="btn btn-primary btn-demo" href="{{route('package')}}"></i> View Detail</a> <a class="btn btn-primary btn-learn" href="{{route('about')}}">Know More</a></p>
 							</div>
 						</div>
 					</div>
@@ -39,7 +39,7 @@
 							<div class="slider-text-inner text-center">
 								<h2>You are invited</h2>
 								<h1>Choose your the Best Travel</h1>
-								<p><a class="btn btn-primary btn-demo" href="#"></i> View Detail</a> <a class="btn btn-primary btn-learn">Know More</a></p>
+								<p><a class="btn btn-primary btn-demo" href="{{route('package')}}"></i> View Detail</a> <a class="btn btn-primary btn-learn" href="{{route('about')}}">Know More</a></p>
 							</div>
 						</div>
 					</div>
@@ -53,7 +53,7 @@
 							<div class="slider-text-inner text-center">
 								<h2>Come &amp; enjoy the unforgetable nights</h2>
 								<h1>Make a easy site for your travelers</h1>
-								<p><a class="btn btn-primary btn-demo" href="#"></i> View Detail</a> <a class="btn btn-primary btn-learn">Know More</a></p>
+								<p><a class="btn btn-primary btn-demo" href="{{route('package')}}"></i> View Detail</a> <a class="btn btn-primary btn-learn" href="{{route('about')}}">Know More</a></p>
 							</div>
 						</div>
 					</div>
@@ -167,7 +167,7 @@
 
 					<div class="hover_Text d-flex align-items-end justify-content-between">
 						<div class="hover_text_iner">
-							<a href="#" class="place_btn">travel</a>
+							<a href="{{route('packagedetail',$row->id)}}" class="place_btn">travel</a>
 							<h3>{{$row->name}}</h3>
 							<div class="place_review">
 								<a href="#"><i class="fas fa-star"></i></a>

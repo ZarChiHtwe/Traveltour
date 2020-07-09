@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,8 +16,8 @@
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="{{asset('frontendtemplate/css/animate.css')}}">
-	 <!-- fontawesome CSS -->
-    <link rel="stylesheet" href="{{asset('frontendtemplate/fontawesome/css/all.min.css')}}">
+	<!-- fontawesome CSS -->
+	<link rel="stylesheet" href="{{asset('frontendtemplate/fontawesome/css/all.min.css')}}">
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="{{asset('frontendtemplate/css/icomoon.css')}}">
 	<!-- Bootstrap  -->
@@ -48,7 +49,7 @@
 </head>
 <body>
 	
- 
+	
 	<div id="page">
 		<nav class="colorlib-nav" role="navigation">
 			<div class="top-menu">
@@ -64,14 +65,25 @@
 								<li><a href="{{route('package')}}">Package</a></li>
 								<li><a href="{{route('about')}}">About</a></li>
 								<li><a href="{{route('contact')}}">Contact</a></li>
-								<li><a href="{{route('logout')}}">Logout</a></li>
+								
+								<li class="has-dropdown">
+									<a href="#"><i class="fas fa-user"></i></a>
+									<ul class="dropdown">
+										<li><a href="{{route('logout')}}">Logout</a></li>
+									</ul>
+								</li>
 								@else
 								<li class="active"><a href="{{route('index')}}">Home</a></li>
 								<li><a href="{{route('package')}}">Package</a></li>
 								<li><a href="{{route('about')}}">About</a></li>
 								<li><a href="{{route('contact')}}">Contact</a></li>
-								<li><a href="{{route('login')}}">Login</a></li>
-								<li><a href="{{route('register')}}">Register</a></li>
+								<li class="has-dropdown">
+									<a href="#"><i class="fas fa-user"></i></a>
+									<ul class="dropdown">
+										<li><a href="{{route('login')}}">Login</a></li>
+										<li><a href="{{route('register')}}">Register</a></li>
+									</ul>
+								</li>
 								@endauth
 							</ul>
 						</div>
@@ -144,27 +156,27 @@
 					</div>
 				</div>
 			</footer>
-	</div>
+		</div>
 
-	<!-- jQuery -->
-	<script src="{{asset('frontendtemplate/js/jquery.min.js')}}"></script>
-	<!-- jQuery Easing -->
-	<script src="{{asset('frontendtemplate/js/jquery.easing.1.3.js')}}"></script>
-	<!-- Bootstrap -->
-	<script src="{{asset('frontendtemplate/js/bootstrap.min.js')}}"></script>
-	<!-- Waypoints -->
-	<script src="{{asset('frontendtemplate/js/jquery.waypoints.min.js')}}"></script>
-	<!-- Flexslider -->
-	<script src="{{asset('frontendtemplate/js/jquery.flexslider-min.js')}}"></script>
-	<!-- Owl carousel -->
-	<script src="{{asset('frontendtemplate/js/owl.carousel.min.js')}}"></script>
-	<!-- Magnific Popup -->
-	<script src="{{asset('frontendtemplate/js/jquery.magnific-popup.min.js')}}"></script>
-	<script src="{{asset('frontendtemplate/js/magnific-popup-options.js')}}"></script>
-	<!-- Date Picker -->
-	<script src="{{asset('frontendtemplate/js/bootstrap-datepicker.js')}}"></script>
-	<!-- Main -->
-	<script src="{{asset('frontendtemplate/js/main.js')}}"></script>
-	<script src="{{asset('frontendtemplate/custom.js')}}"></script>
-</body>
-</html>
+		<!-- jQuery -->
+		<script src="{{asset('frontendtemplate/js/jquery.min.js')}}"></script>
+		<!-- jQuery Easing -->
+		<script src="{{asset('frontendtemplate/js/jquery.easing.1.3.js')}}"></script>
+		<!-- Bootstrap -->
+		<script src="{{asset('frontendtemplate/js/bootstrap.min.js')}}"></script>
+		<!-- Waypoints -->
+		<script src="{{asset('frontendtemplate/js/jquery.waypoints.min.js')}}"></script>
+		<!-- Flexslider -->
+		<script src="{{asset('frontendtemplate/js/jquery.flexslider-min.js')}}"></script>
+		<!-- Owl carousel -->
+		<script src="{{asset('frontendtemplate/js/owl.carousel.min.js')}}"></script>
+		<!-- Magnific Popup -->
+		<script src="{{asset('frontendtemplate/js/jquery.magnific-popup.min.js')}}"></script>
+		<script src="{{asset('frontendtemplate/js/magnific-popup-options.js')}}"></script>
+		<!-- Date Picker -->
+		<script src="{{asset('frontendtemplate/js/bootstrap-datepicker.js')}}"></script>
+		<!-- Main -->
+		<script src="{{asset('frontendtemplate/js/main.js')}}"></script>
+		<script src="{{asset('frontendtemplate/custom.js')}}"></script>
+	</body>
+	</html>
