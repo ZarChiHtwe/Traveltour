@@ -111,6 +111,8 @@ class BookingController extends Controller
 
         $date=date('Y-m-d');
 
+        $email=$request->email;
+
         $data=array(
             'name'=>$request->name,
             'voucherno'=>$request->voucherno,
@@ -125,7 +127,8 @@ class BookingController extends Controller
             'duration'=>$request->duration,
             'date'=> $date,
         );
-        Mail::to('kobunny123@gmail.com')->send(new SendMail($data));
+
+        Mail::to($email)->send(new SendMail($data));
         
         //Data insert
         $booking = Booking::find($id);

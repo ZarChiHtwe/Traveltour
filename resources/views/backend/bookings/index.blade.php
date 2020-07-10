@@ -84,6 +84,7 @@
                           <input type="hidden" name="depaturedate" value="{{$row->packages->depaturedate}}">
                           <input type="hidden" name="depaturetime" value="{{$row->packages->depaturetime}}">
                           <input type="hidden" name="duration" value="{{$row->packages->duration}}">
+                          <input type="hidden" value="{{$row->users->email}}" name="email">
 
                         </form>
                         <a href="{{route('bookings.show',$row->id)}}"  class="btn btn-outline-info"><i class="fas fa-info"></i></a>

@@ -42,7 +42,6 @@ class CarController extends Controller
          //validation
         $request->validate([
             'carnumber' => 'required|max:191',
-
             'photo.*' => 'required|mimes:jpeg,bmp,png',
             'status'=> 'required|max:191',
             'cartype'=> 'required'

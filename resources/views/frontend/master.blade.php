@@ -69,6 +69,8 @@
 								<li class="has-dropdown">
 									<a href="#"><i class="fas fa-user"></i></a>
 									<ul class="dropdown">
+										<li><a href="#">{{Auth::user()->name}}</a></li>
+										<li><a href="#">{{Auth::user()->email}}</a></li>
 										<li><a href="{{route('logout')}}">Logout</a></li>
 									</ul>
 								</li>

@@ -22,7 +22,7 @@
 			@if($message=Session::get('reply'))
 			<div class="alert alert-success alert-block">
 				<button type="button" class="close" data-dismiss="alert">
-					X
+					x
 				</button>
 				<strong>{{$message}}</strong>
 			</div>
